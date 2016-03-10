@@ -11,6 +11,12 @@ public class TaskPanel extends JPanel
 
     TaskPanel()
     {
+        Dimension size = new Dimension(150, 50);
+        setMinimumSize(size);
+        setPreferredSize(size);
+        setMaximumSize(size);
+        setAlignmentX(0);
+        setAlignmentY(0);
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.FIRST_LINE_START;
@@ -20,7 +26,6 @@ public class TaskPanel extends JPanel
         constraints.gridy = 0;
         constraints.gridheight = 3;
         add(selected, constraints);
-
 
 
         labelFromNow = new JLabel();

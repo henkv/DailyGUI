@@ -1,21 +1,12 @@
 import java.time.DayOfWeek;
 import java.util.EnumSet;
 
-public class Task
+public class Task extends RepeatingTime implements Compare<Task>
 {
     public enum Day {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SUNDAY, SATURDAY};
-    public class Time
-    {
-        public int hour;
-        public int minute;
-    }
 
     private String name;
     private String details;
-    private EnumSet<Day> days;
-
-    private Time start;
-    private Time end;
 
     public String getName() {
         return name;
@@ -23,6 +14,21 @@ public class Task
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean lessThan(Task other) {
+        return false;
+    }
+
+    @Override
+    public boolean greaterThan(Task other) {
+        return false;
+    }
+
+    @Override
+    public boolean equalsTo(Task other) {
+        return false;
     }
 
     public String getDetails() {
@@ -33,36 +39,5 @@ public class Task
         this.details = details;
     }
 
-    public Time getStart() {
-        return start;
-    }
 
-    public void setStart(Time start) {
-        this.start = start;
-    }
-
-    public Time getEnd() {
-        return end;
-    }
-
-    public void setEnd(Time end) {
-        this.end = end;
-    }
-
-    public  EnumSet<Day> getDays()
-    {
-        return days;
-    }
-
-    public void addDay(Day day)
-    {
-        if (!days.contains(day))
-            days.add(day);
-    }
-
-    public void removeDay(Day day)
-    {
-        if (days.contains(day))
-            days.remove(day);
-    }
 }
