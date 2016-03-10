@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="440f363e-2d81-4685-a11d-c8d7fd6b62e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Compare.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/RepeatingTime.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateTaskView.java" afterPath="$PROJECT_DIR$/src/CreateTaskView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ScheduleView.java" afterPath="$PROJECT_DIR$/src/ScheduleView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Task.java" afterPath="$PROJECT_DIR$/src/Task.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TaskPanel.java" afterPath="$PROJECT_DIR$/src/TaskPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RepeatingTime.java" afterPath="$PROJECT_DIR$/src/RepeatingTime.java" />
     </list>
     <ignored path="DailySchedule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -114,7 +108,7 @@
         <entry file="file://$PROJECT_DIR$/src/RepeatingTime.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.44987145">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -831,7 +825,7 @@
     <entry file="file://$PROJECT_DIR$/src/RepeatingTime.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44987145">
-          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
