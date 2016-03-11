@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="440f363e-2d81-4685-a11d-c8d7fd6b62e7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CreateTaskFrame.java" afterPath="$PROJECT_DIR$/src/CreateTaskFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/RepeatingTime.java" afterPath="$PROJECT_DIR$/src/RepeatingTime.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ScheduleFrame.java" afterPath="$PROJECT_DIR$/src/ScheduleFrame.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TaskPanel.java" afterPath="$PROJECT_DIR$/src/TaskPanel.java" />
     </list>
     <ignored path="DailySchedule.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +27,8 @@
       <file leaf-file-name="ScheduleFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ScheduleFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7234042">
-              <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.6296296">
+              <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -785,8 +781,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ScheduleFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7234042">
-          <caret line="61" column="9" selection-start-line="61" selection-start-column="9" selection-end-line="61" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.6296296">
+          <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
           <folding />
         </state>
       </provider>
