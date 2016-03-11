@@ -7,7 +7,8 @@ import java.util.Vector;
 public class ScheduleFrame extends JFrame
 {
     private static final HeapSort<Task> taskHeapSort = new HeapSort<>();
-    Vector<Task> tasks;
+    TaskManager taskManager;
+
     JPanel taskList;
     ScheduleFrame frame = this;
 
@@ -23,7 +24,7 @@ public class ScheduleFrame extends JFrame
 
     ScheduleFrame()
     {
-        tasks = new Vector<>();
+        taskManager = new TaskManager();
 
         setSize(150, 600);
         setLocationRelativeTo(null);
@@ -35,7 +36,6 @@ public class ScheduleFrame extends JFrame
         taskList.setLayout(new BoxLayout(taskList, BoxLayout.Y_AXIS));
 
         add(new JScrollPane(taskList), BorderLayout.CENTER);
-
 
         JButton buttonNewTask = new JButton();
         buttonNewTask.setText("Create new Task");
@@ -50,7 +50,7 @@ public class ScheduleFrame extends JFrame
 
     public void addTaskToList(Task task)
     {
-        tasks.add(task);
+        taskManager.addTask(task);
         updateTaskList();
 
     }
@@ -58,8 +58,8 @@ public class ScheduleFrame extends JFrame
     private void updateTaskList()
     {
         taskList.removeAll();
-        taskHeapSort.sort(tasks);
-        tasks.forEach(task ->
+        taskHeapSort.sort(taskManager.getVector());
+        taskManager.getVector().forEach(task ->
         {
             taskList.add(new TaskPanel(task));
         });
