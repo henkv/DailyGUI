@@ -41,6 +41,7 @@ public class ScheduleFrame extends JFrame
 
     ScheduleFrame()
     {
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         taskManager = new TaskManager();
         taskManager.readFromFile("tasks.ser");
         panels = new Vector<>();
@@ -52,9 +53,12 @@ public class ScheduleFrame extends JFrame
 
         taskList = new JPanel();
         taskList.setAlignmentY(Component.TOP_ALIGNMENT);
-        taskList.setLayout(new BoxLayout(taskList, BoxLayout.Y_AXIS));
+        taskList.setLayout(new GridBagLayout());
 
-        add(new JScrollPane(taskList), BorderLayout.CENTER);
+        taskList.setAlignmentY(JPanel.TOP_ALIGNMENT);
+        taskList.setAlignmentX(JPanel.LEFT_ALIGNMENT);
+
+        add(new JScrollPane(taskList, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER), BorderLayout.CENTER);
 
         JButton buttonNewTask = new JButton();
         buttonNewTask.setText("Create new Task");
@@ -81,12 +85,19 @@ public class ScheduleFrame extends JFrame
         taskList.removeAll();
         panels.clear();
 
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridwidth = GridBagConstraints.REMAINDER;
+        constraints.anchor = GridBagConstraints.FIRST_LINE_START;
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+
         taskManager.sort();
         taskManager.forEach(task ->
         {
             TaskPanel panel = new TaskPanel(task);
             panels.add(panel);
-            taskList.add(panel);
+            taskList.add(panel, constraints);
+            constraints.gridy++;
         });
         
         revalidate();
