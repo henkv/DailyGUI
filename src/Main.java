@@ -18,8 +18,9 @@ public class Main {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        
-        CreateTaskFrame ctFrame = new CreateTaskFrame(null);
+
+        ScheduleFrame scheduleFrame = new ScheduleFrame();
+        scheduleFrame.setVisible(true);
     }
 
 

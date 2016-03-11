@@ -21,15 +21,34 @@ public class RepeatingTime implements Compares<Task>
     };
     private int hour;
     private int minute;
-    private int duration;
+    private int hourEnd;
+    private int minuteEnd;
     private ArrayList<Day> days;
 
     public RepeatingTime()
     {
         hour = 0;
         minute = 0;
-        duration = 0;
+        hourEnd = 0;
+        minuteEnd = 0;
+
         days = new ArrayList<>();
+    }
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
+    public void setHourEnd(int hourEnd) {
+        this.hourEnd = hourEnd;
+    }
+
+    public void setMinuteEnd(int minuteEnd) {
+        this.minuteEnd = minuteEnd;
     }
 
     public Date getClosesDate()
@@ -61,10 +80,10 @@ public class RepeatingTime implements Compares<Task>
         this.hour = hour;
         this.minute = minute;
     }
-
-    public void setDuration(int duration)
+    public void setEndTime(int hour, int minute)
     {
-        this.duration = duration;
+        this.hourEnd = hour;
+        this.minuteEnd = minute;
     }
 
     public void addDay(Day day)
@@ -95,17 +114,8 @@ public class RepeatingTime implements Compares<Task>
 
     public String timeToString()
     {
-        int endHour = hour + duration/60;
-        int endMinute = minute + duration % 60;
-
-        while (endMinute >= 60)
-        {
-            endHour++;
-            endMinute -= 60;
-        }
-
-        return intToString(hour) + ":" + intToString(minute) + " - " +
-                intToString(endHour) + ":" + intToString(endMinute);
+        return  intToString(hour)    + ":" + intToString(minute) + " - " +
+                intToString(hourEnd) + ":" + intToString(minuteEnd);
     }
 
     public String daysToString()
@@ -131,6 +141,22 @@ public class RepeatingTime implements Compares<Task>
         long hours = diff / 60 / 60;
 
         return hours + "h " + minutes + "m";
+    }
+
+    public int getHour() {
+        return hour;
+    }
+
+    public int getMinute() {
+        return minute;
+    }
+
+    public int getHourEnd() {
+        return hourEnd;
+    }
+
+    public int getMinuteEnd() {
+        return minuteEnd;
     }
 
     static String intToString(int number)
