@@ -1,5 +1,5 @@
 
-public interface Compare<T>
+public interface Compares<T>
 {
     public boolean lessThan(T other);
     public boolean greaterThan(T other);

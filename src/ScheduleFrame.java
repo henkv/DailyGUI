@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ScheduleView extends JFrame
+public class ScheduleFrame extends JFrame
 {
     JPanel taskList;
 
@@ -17,7 +17,7 @@ public class ScheduleView extends JFrame
     }
 
 
-    ScheduleView()
+    ScheduleFrame()
     {
         setSize(150, 600);
         setLocationRelativeTo(null);
@@ -42,7 +42,7 @@ public class ScheduleView extends JFrame
         add(buttonDelete, BorderLayout.SOUTH);
     }
 
-    private void addTaskToList(Task task)
+    public void addTaskToList(Task task)
     {
 
     }
