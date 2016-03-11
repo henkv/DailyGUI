@@ -5,6 +5,11 @@ import java.util.Date;
 public class TaskPanel extends JPanel
 {
     Task task;
+
+    public Task getTask() {
+        return task;
+    }
+
     JCheckBox selected;
     JLabel labelFromNow;
     JLabel labelDays;
@@ -13,10 +18,7 @@ public class TaskPanel extends JPanel
     TaskPanel(Task task)
     {
         this.task = task;
-        Dimension size = new Dimension(150, 50);
-        setMinimumSize(size);
-        setPreferredSize(size);
-        setMaximumSize(size);
+
         setAlignmentX(0);
         setAlignmentY(0);
         setLayout(new GridBagLayout());
@@ -31,7 +33,7 @@ public class TaskPanel extends JPanel
 
 
         labelFromNow = new JLabel();
-        labelFromNow.setText(task.relativeTime(new Date()) + " - " +getName() + " - " + task.getDesc());
+        labelFromNow.setText(task.relativeTime(new Date()) + " - " + task.getName() + " - " + task.getDesc());
         constraints.gridy = 0;
         constraints.gridx = 1;
         constraints.gridheight = 1;
@@ -49,8 +51,16 @@ public class TaskPanel extends JPanel
         constraints.gridy = 2;
         add(labelDays, constraints);
 
-//        add(new JLabel("6h - DV1575 - G202"));
+        Dimension size = new Dimension(200, 50);
+        setMinimumSize(size);
+        setPreferredSize(size);
+        setMaximumSize(size);
+
 
     }
 
+    public boolean isSelected()
+    {
+        return selected.isSelected();
+    }
 }

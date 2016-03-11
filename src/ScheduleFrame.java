@@ -6,9 +6,8 @@ import java.util.Vector;
 
 public class ScheduleFrame extends JFrame
 {
-    private static final HeapSort<Task> taskHeapSort = new HeapSort<>();
     TaskManager taskManager;
-
+    Vector<TaskPanel> panels;
     JPanel taskList;
     ScheduleFrame frame = this;
 
@@ -21,12 +20,32 @@ public class ScheduleFrame extends JFrame
         }
     }
 
+    private class DeleteTasks implements ActionListener
+    {
+        @Override
+        public void actionPerformed(ActionEvent e)
+        {
+            panels.forEach(panel ->
+            {
+                if (panel.isSelected())
+                {
+                    taskManager.removeTask(panel.getTask());
+                }
+            });
+
+            taskManager.saveToFile("tasks.ser");
+
+            updateTaskList();
+        }
+    }
 
     ScheduleFrame()
     {
         taskManager = new TaskManager();
+        taskManager.readFromFile("tasks.ser");
+        panels = new Vector<>();
 
-        setSize(150, 600);
+        setSize(300, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
 
@@ -44,27 +63,34 @@ public class ScheduleFrame extends JFrame
 
         JButton buttonDelete = new JButton();
         buttonDelete.setText("Delete marked Tasks");
-        buttonDelete.addActionListener(new CreateNewTask());
+        buttonDelete.addActionListener(new DeleteTasks());
         add(buttonDelete, BorderLayout.SOUTH);
+
+        updateTaskList();
     }
 
     public void addTaskToList(Task task)
     {
         taskManager.addTask(task);
+        taskManager.saveToFile("tasks.ser");
         updateTaskList();
-
     }
 
     private void updateTaskList()
     {
         taskList.removeAll();
-        taskHeapSort.sort(taskManager.getVector());
-        taskManager.getVector().forEach(task ->
-        {
-            taskList.add(new TaskPanel(task));
-        });
+        panels.clear();
 
+        taskManager.sort();
+        taskManager.forEach(task ->
+        {
+            TaskPanel panel = new TaskPanel(task);
+            panels.add(panel);
+            taskList.add(panel);
+        });
+        
         revalidate();
+        repaint();
     }
 
 
