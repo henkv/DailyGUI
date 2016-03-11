@@ -2,23 +2,29 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
 
 public class ScheduleFrame extends JFrame
 {
+    private static final HeapSort<Task> taskHeapSort = new HeapSort<>();
+    Vector<Task> tasks;
     JPanel taskList;
+    ScheduleFrame frame = this;
 
     private class CreateNewTask implements ActionListener
     {
         @Override
-        public void actionPerformed(ActionEvent e) {
-            taskList.add(new TaskPanel());
-            taskList.revalidate();
+        public void actionPerformed(ActionEvent e)
+        {
+            new CreateTaskFrame(frame);
         }
     }
 
 
     ScheduleFrame()
     {
+        tasks = new Vector<>();
+
         setSize(150, 600);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
@@ -44,7 +50,23 @@ public class ScheduleFrame extends JFrame
 
     public void addTaskToList(Task task)
     {
-
+        tasks.add(task);
+        updateTaskList();
+        
     }
+
+    private void updateTaskList()
+    {
+        taskList.removeAll();
+        taskHeapSort.sort(tasks);
+        tasks.forEach(task ->
+        {
+            taskList.add(new TaskPanel(task));
+        });
+
+        revalidate();
+    }
+
+
 
 }

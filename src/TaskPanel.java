@@ -1,16 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Date;
 
 public class TaskPanel extends JPanel
 {
-    Task data;
+    Task task;
     JCheckBox selected;
     JLabel labelFromNow;
     JLabel labelDays;
     JLabel labelTime;
 
-    TaskPanel()
+    TaskPanel(Task task)
     {
+        this.task = task;
         Dimension size = new Dimension(150, 50);
         setMinimumSize(size);
         setPreferredSize(size);
@@ -29,7 +31,7 @@ public class TaskPanel extends JPanel
 
 
         labelFromNow = new JLabel();
-        labelFromNow.setText("6h - DV1549 - J1506");
+        labelFromNow.setText(task.relativeTime(new Date()) + " - " +getName() + " - " + task.getDesc());
         constraints.gridy = 0;
         constraints.gridx = 1;
         constraints.gridheight = 1;
@@ -37,13 +39,13 @@ public class TaskPanel extends JPanel
 
 
         labelTime = new JLabel();
-        labelTime.setText("10:00 - 13:00");
+        labelTime.setText(task.timeToString());
         constraints.gridy = 1;
         add(labelTime, constraints);
 
 
         labelDays = new JLabel();
-        labelDays.setText("Mondays, Fridays");
+        labelDays.setText(task.daysToString());
         constraints.gridy = 2;
         add(labelDays, constraints);
 
