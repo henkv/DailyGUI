@@ -52,7 +52,7 @@ public class ScheduleFrame extends JFrame
     {
         tasks.add(task);
         updateTaskList();
-        
+
     }
 
     private void updateTaskList()
