@@ -16,4 +16,12 @@ public class Task extends RepeatingTime
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public boolean match(String str)
+    {
+        int nameIndex = name.indexOf(str);
+        int descIndex = desc.indexOf(str);
+
+        return nameIndex >= 0 || descIndex >= 0;
+    }
 }
