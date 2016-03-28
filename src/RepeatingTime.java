@@ -1,10 +1,12 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Vector;
 
-public class RepeatingTime implements Compares<Task>
+public class RepeatingTime implements Serializable, Compares<Task>
 {
-    public enum Day {
+    public enum Day{
         MONDAY(Calendar.MONDAY),
         TUESDAY(Calendar.TUESDAY),
         WEDNESDAY(Calendar.WEDNESDAY),
@@ -23,7 +25,7 @@ public class RepeatingTime implements Compares<Task>
     private int minute;
     private int hourEnd;
     private int minuteEnd;
-    private ArrayList<Day> days;
+    private Vector<Day> days;
 
     public RepeatingTime()
     {
@@ -32,7 +34,7 @@ public class RepeatingTime implements Compares<Task>
         hourEnd = 0;
         minuteEnd = 0;
 
-        days = new ArrayList<>();
+        days = new Vector<>();
     }
 
     public void setHour(int hour) {

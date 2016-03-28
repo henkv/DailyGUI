@@ -1,4 +1,6 @@
-public class Task extends RepeatingTime
+import java.io.Serializable;
+
+public class Task extends RepeatingTime implements Serializable
 {
     private String name;
     private String desc;
@@ -19,9 +21,6 @@ public class Task extends RepeatingTime
 
     public boolean match(String str)
     {
-        int nameIndex = name.indexOf(str);
-        int descIndex = desc.indexOf(str);
-
-        return nameIndex >= 0 || descIndex >= 0;
+        return (name.indexOf(str) >= 0) || (desc.indexOf(str) >= 0) ;
     }
 }
